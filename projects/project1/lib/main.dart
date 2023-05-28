@@ -7,7 +7,7 @@ void main() {
 // With Flutter, you create user interfaces by combining "widgets"
 // You'll learn all about them (and much more) throughout this course!
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // Every custom widget must have a build() method
   // It tells Flutter, which widgets make up your custom widget
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     // also learn about many other widgets!
     return MaterialApp(
       title: 'Flutter First App',
-      theme: ThemeData(),
+      theme: ThemeData(useMaterial3: true),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Welcome to Flutter'),
@@ -28,10 +28,10 @@ class MyApp extends StatelessWidget {
         body: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(12),
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 'Flutter - The Complete Guide',
                 textAlign: TextAlign.center,
