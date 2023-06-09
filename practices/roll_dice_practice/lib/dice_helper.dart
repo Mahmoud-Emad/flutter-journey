@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+final random = Random();
 
 class DiceHelper extends StatefulWidget {
   const DiceHelper({super.key});
@@ -10,11 +13,11 @@ class DiceHelper extends StatefulWidget {
 }
 
 class _DiceHelperState extends State<DiceHelper> {
-  var diceImage = "assets/images/dice-1.png";
+  var currentDiceNumber = 6;
 
   rollDice() {
     setState(() {
-      diceImage = "assets/images/dice-2.png";
+      currentDiceNumber = random.nextInt(6) + 1;
     });
   }
 
@@ -24,7 +27,7 @@ class _DiceHelperState extends State<DiceHelper> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          diceImage,
+          "assets/images/dice-$currentDiceNumber.png",
           width: 200,
         ),
         TextButton(
