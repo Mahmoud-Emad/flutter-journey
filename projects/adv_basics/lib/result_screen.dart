@@ -1,12 +1,14 @@
+import 'package:adv_basics/data/questions.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.selectedAnswers});
+  const ResultScreen({super.key, required this.chosenAnswers});
 
-  final List<String> selectedAnswers;
+  final List<String> chosenAnswers;
 
   @override
   Widget build(BuildContext context) {
+    questions.length;
     return SizedBox(
       width: double.infinity,
       child: Container(
