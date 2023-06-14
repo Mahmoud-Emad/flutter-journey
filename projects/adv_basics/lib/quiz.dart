@@ -23,12 +23,17 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void backToHome() {
+    setState(() {
+      selectedAnswers.clear();
+      activeScreen = 'start-screen';
+    });
+  }
+
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        // selectedAnswers = [];
-        // activeScreen = 'start-screen';
         activeScreen = 'result-screen';
       });
     }
@@ -42,9 +47,8 @@ class _QuizState extends State<Quiz> {
         onSelectAnswer: chooseAnswer,
       );
     } else if (activeScreen == 'result-screen') {
-      screenWidget = ResultScreen(
-        chosenAnswers: selectedAnswers,
-      );
+      screenWidget =
+          ResultScreen(chosenAnswers: selectedAnswers, backToHome: backToHome);
     }
 
     return MaterialApp(
