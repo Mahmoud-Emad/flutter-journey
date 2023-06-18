@@ -6,6 +6,8 @@ import 'title_with_more_btn.dart';
 import 'header_with_searchbox.dart';
 
 class Body extends StatelessWidget {
+  const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
     // It'll provide us the total height and width of the screen.
