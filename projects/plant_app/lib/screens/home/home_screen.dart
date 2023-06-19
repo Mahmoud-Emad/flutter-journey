@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:plant_app/screens/home/components/body.dart';
 
+import '../../components/navbar_bottom.dart';
 import '../../constants.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,7 +10,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body(),
+      body: const Body(),
+      bottomNavigationBar: const MyBottomNavBar(),
     );
   }
 

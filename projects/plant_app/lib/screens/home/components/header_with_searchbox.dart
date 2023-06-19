@@ -41,7 +41,7 @@ class HeaderWithSearchBox extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.asset("assets/images/logo.png"),
               ],
             ),
@@ -51,15 +51,15 @@ class HeaderWithSearchBox extends StatelessWidget {
             left: 0,
             right: 0,
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: kDefualtPadding),
-              padding: EdgeInsets.symmetric(horizontal: kDefualtPadding),
+              margin: const EdgeInsets.symmetric(horizontal: kDefualtPadding),
+              padding: const EdgeInsets.symmetric(horizontal: kDefualtPadding),
               height: 54,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    offset: Offset(0, 10),
+                    offset: const Offset(0, 10),
                     blurRadius: 50,
                     color: kPrimaryColor.withOpacity(0.23),
                   )
