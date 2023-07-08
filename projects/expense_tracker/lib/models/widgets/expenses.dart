@@ -28,6 +28,15 @@ class _ExpensesState extends State<Expenses> {
     ),
   ];
 
+  void _openAddExpenseOvelay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) {
+        return const Text("If this displayed?");
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +45,7 @@ class _ExpensesState extends State<Expenses> {
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {},
+            onPressed: _openAddExpenseOvelay,
           ) // Add button here
         ],
       ),
