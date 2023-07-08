@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../new_expense.dart';
 import 'expenses_list/expenses_list.dart';
 import '../expense.dart';
 
@@ -32,7 +33,7 @@ class _ExpensesState extends State<Expenses> {
     showModalBottomSheet(
       context: context,
       builder: (ctx) {
-        return const Text("If this displayed?");
+        return const NewExpense();
       },
     );
   }
