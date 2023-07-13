@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../new_expense.dart';
+import 'new_expense.dart';
 import 'expenses_list/expenses_list.dart';
 import '../expense.dart';
 
