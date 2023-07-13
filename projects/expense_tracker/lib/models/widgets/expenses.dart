@@ -94,7 +94,10 @@ class _ExpensesState extends State<Expenses> {
         ],
       ),
       body: Column(
-        children: [Expanded(child: mainContent)],
+        children: [
+          const Text("The chart"),
+          Expanded(child: mainContent),
+        ],
       ),
     );
   }
