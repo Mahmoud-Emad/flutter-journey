@@ -29,7 +29,7 @@ class _ExpensesState extends State<Expenses> {
     ),
   ];
 
-  void onSubmitted(expense) {
+  void _addExpense(Expense expense) {
     setState(() {
       _registerdExpenses.add(expense);
     });
@@ -40,7 +40,7 @@ class _ExpensesState extends State<Expenses> {
       context: context,
       builder: (ctx) {
         return NewExpense(
-          onSubmitted: onSubmitted,
+          onAddExpense: _addExpense,
         );
       },
     );
