@@ -29,11 +29,19 @@ class _ExpensesState extends State<Expenses> {
     ),
   ];
 
+  void onSubmitted(expense) {
+    setState(() {
+      _registerdExpenses.add(expense);
+    });
+  }
+
   void _openAddExpenseOvelay() {
     showModalBottomSheet(
       context: context,
       builder: (ctx) {
-        return const NewExpense();
+        return NewExpense(
+          onSubmitted: onSubmitted,
+        );
       },
     );
   }
