@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal.dart';
-// import 'package:transparent_image/transparent_image.dart';
 
 class MealDetailsScreen extends StatefulWidget {
   const MealDetailsScreen({
@@ -23,35 +22,49 @@ class MealDetailsScreen extends StatefulWidget {
 class _MealDetailsScreenState extends State<MealDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    Icon favIcon = Icon(widget.favorites.contains(widget.meal)
-        ? Icons.star
-        : Icons.star_border_outlined);
+    bool isFavorite = widget.favorites.contains(widget.meal);
+
+    Icon favIcon = Icon(
+      isFavorite ? Icons.star : Icons.star_border,
+      key: ValueKey(isFavorite),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.meal.title),
         actions: [
-          // if(meal.d)
           IconButton(
             onPressed: () {
-              setState(() {
-                widget.onToggleFavorite(widget.meal);
-                favIcon = Icon(widget.favorites.contains(widget.meal)
-                    ? Icons.star
-                    : Icons.star_border_outlined);
-              });
+              setState(
+                () {
+                  widget.onToggleFavorite(widget.meal);
+                },
+              );
             },
-            icon: favIcon,
+            icon: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: Tween<double>(begin: 0.8, end: 1).animate(animation),
+                  child: child,
+                );
+              },
+              child: favIcon,
+            ),
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(
-              widget.meal.imageUrl,
-              width: double.infinity,
-              fit: BoxFit.cover,
-              height: 300,
+            Hero(
+              tag: widget.meal.id,
+              child: Image.network(
+                widget.meal.imageUrl,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                height: 300,
+              ),
             ),
             const SizedBox(height: 14),
             Text(
